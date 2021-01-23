@@ -1,0 +1,769 @@
+{
+  "contractName": "RadicoSystemAuthority",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_radicoSystemAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_radicoSystemAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"details\":\"The `RadicoSystem` contract address is passed as a constructor parameter.\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Radico System Authority.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"constructor\":{\"notice\":\"Set the address of the System contract on contract initialization.\"}},\"notice\":\"Contract to secure function calls to that only the System contract should be able to use.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/D/Workspace/daico/contracts/RadicoSystemAuthority.sol\":\"RadicoSystemAuthority\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/D/Workspace/daico/contracts/RadicoSystemAuthority.sol\":{\"keccak256\":\"0x0dee22da3c77f236720fc661ccde5d5e6c6ff31bcc82ab79751b03770b5047a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6254240edfd99a65f2dafb2737fcbb6c1b4f7af1c64a831c856dfdb2056bd9cc\",\"dweb:/ipfs/QmZrTSmeMUHNACUi3NvutNj53YYtXsYbniGiDmWtJ5mGfE\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b5060405160cd38038060cd83398181016040526020811015602f57600080fd5b8101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050603f80608e6000396000f3fe6080604052600080fdfea2646970667358221220cec7c1d1f39f07894a5be6148ec4f4d232181c1578f52550832845b7a6f1935664736f6c63430007040033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220cec7c1d1f39f07894a5be6148ec4f4d232181c1578f52550832845b7a6f1935664736f6c63430007040033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "287:550:6:-:0;;;454:103;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;529:20;507:19;;:42;;;;;;;;;;;;;;;;;;454:103;287:550;;;;;;",
+  "deployedSourceMap": "287:550:6:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity 0.7.4;\r\n\r\n/// @title  Radico System Authority.\r\n/// @notice Contract to secure function calls to that only the System contract should be able to use.\r\n/// @dev    The `RadicoSystem` contract address is passed as a constructor parameter.\r\ncontract RadicoSystemAuthority {\r\n    address internal radicoSystemAddress;\r\n\r\n    /// @notice Set the address of the System contract on contract initialization.\r\n    constructor(address _radicoSystemAddress) {\r\n        radicoSystemAddress = _radicoSystemAddress;\r\n    }\r\n\r\n    /// @notice Function modifier ensures modified function is only called by TBTCSystem.\r\n    modifier onlyRadicoSystem() {\r\n        require(\r\n            msg.sender == radicoSystemAddress,\r\n            \"Caller must be RadicoSystem contract\"\r\n        );\r\n        _;\r\n    }\r\n}\r\n",
+  "sourcePath": "D:\\Workspace\\daico\\contracts\\RadicoSystemAuthority.sol",
+  "ast": {
+    "absolutePath": "/D/Workspace/daico/contracts/RadicoSystemAuthority.sol",
+    "exportedSymbols": {
+      "RadicoSystemAuthority": [
+        775
+      ]
+    },
+    "id": 776,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 747,
+        "literals": [
+          "solidity",
+          "0.7",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:22:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 748,
+          "nodeType": "StructuredDocumentation",
+          "src": "59:228:6",
+          "text": "@title  Radico System Authority.\n @notice Contract to secure function calls to that only the System contract should be able to use.\n @dev    The `RadicoSystem` contract address is passed as a constructor parameter."
+        },
+        "fullyImplemented": true,
+        "id": 775,
+        "linearizedBaseContracts": [
+          775
+        ],
+        "name": "RadicoSystemAuthority",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 750,
+            "mutability": "mutable",
+            "name": "radicoSystemAddress",
+            "nodeType": "VariableDeclaration",
+            "scope": 775,
+            "src": "325:36:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 749,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "325:7:6",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 760,
+              "nodeType": "Block",
+              "src": "496:61:6",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 758,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 756,
+                      "name": "radicoSystemAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 750,
+                      "src": "507:19:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 757,
+                      "name": "_radicoSystemAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 753,
+                      "src": "529:20:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "507:42:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 759,
+                  "nodeType": "ExpressionStatement",
+                  "src": "507:42:6"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 751,
+              "nodeType": "StructuredDocumentation",
+              "src": "370:78:6",
+              "text": "@notice Set the address of the System contract on contract initialization."
+            },
+            "id": 761,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 754,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 753,
+                  "mutability": "mutable",
+                  "name": "_radicoSystemAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 761,
+                  "src": "466:28:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 752,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "466:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "465:30:6"
+            },
+            "returnParameters": {
+              "id": 755,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "496:0:6"
+            },
+            "scope": 775,
+            "src": "454:103:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 773,
+              "nodeType": "Block",
+              "src": "684:150:6",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 768,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 765,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "717:3:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 766,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "717:10:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "id": 767,
+                          "name": "radicoSystemAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 750,
+                          "src": "731:19:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "717:33:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "43616c6c6572206d7573742062652052616469636f53797374656d20636f6e7472616374",
+                        "id": 769,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "765:38:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_0a13730c1eabe7b8b14db99b0ac047a524b9cb7c88beb2751dcfc48af1abe2be",
+                          "typeString": "literal_string \"Caller must be RadicoSystem contract\""
+                        },
+                        "value": "Caller must be RadicoSystem contract"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_0a13730c1eabe7b8b14db99b0ac047a524b9cb7c88beb2751dcfc48af1abe2be",
+                          "typeString": "literal_string \"Caller must be RadicoSystem contract\""
+                        }
+                      ],
+                      "id": 764,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "695:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 770,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "695:119:6",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 771,
+                  "nodeType": "ExpressionStatement",
+                  "src": "695:119:6"
+                },
+                {
+                  "id": 772,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "825:1:6"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 762,
+              "nodeType": "StructuredDocumentation",
+              "src": "565:85:6",
+              "text": "@notice Function modifier ensures modified function is only called by TBTCSystem."
+            },
+            "id": 774,
+            "name": "onlyRadicoSystem",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 763,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "681:2:6"
+            },
+            "src": "656:178:6",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 776,
+        "src": "287:550:6"
+      }
+    ],
+    "src": "33:806:6"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/D/Workspace/daico/contracts/RadicoSystemAuthority.sol",
+      "exportedSymbols": {
+        "RadicoSystemAuthority": [
+          775
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.7",
+            ".4"
+          ]
+        },
+        "id": 747,
+        "name": "PragmaDirective",
+        "src": "33:22:6"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            775
+          ],
+          "name": "RadicoSystemAuthority",
+          "scope": 776
+        },
+        "children": [
+          {
+            "attributes": {
+              "text": "@title  Radico System Authority.\n @notice Contract to secure function calls to that only the System contract should be able to use.\n @dev    The `RadicoSystem` contract address is passed as a constructor parameter."
+            },
+            "id": 748,
+            "name": "StructuredDocumentation",
+            "src": "59:228:6"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "radicoSystemAddress",
+              "scope": 775,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "stateMutability": "nonpayable",
+                  "type": "address"
+                },
+                "id": 749,
+                "name": "ElementaryTypeName",
+                "src": "325:7:6"
+              }
+            ],
+            "id": 750,
+            "name": "VariableDeclaration",
+            "src": "325:36:6"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 775,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": "@notice Set the address of the System contract on contract initialization."
+                },
+                "id": 751,
+                "name": "StructuredDocumentation",
+                "src": "370:78:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_radicoSystemAddress",
+                      "scope": 761,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 752,
+                        "name": "ElementaryTypeName",
+                        "src": "466:7:6"
+                      }
+                    ],
+                    "id": 753,
+                    "name": "VariableDeclaration",
+                    "src": "466:28:6"
+                  }
+                ],
+                "id": 754,
+                "name": "ParameterList",
+                "src": "465:30:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 755,
+                "name": "ParameterList",
+                "src": "496:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 750,
+                              "type": "address",
+                              "value": "radicoSystemAddress"
+                            },
+                            "id": 756,
+                            "name": "Identifier",
+                            "src": "507:19:6"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 753,
+                              "type": "address",
+                              "value": "_radicoSystemAddress"
+                            },
+                            "id": 757,
+                            "name": "Identifier",
+                            "src": "529:20:6"
+                          }
+                        ],
+                        "id": 758,
+                        "name": "Assignment",
+                        "src": "507:42:6"
+                      }
+                    ],
+                    "id": 759,
+                    "name": "ExpressionStatement",
+                    "src": "507:42:6"
+                  }
+                ],
+                "id": 760,
+                "name": "Block",
+                "src": "496:61:6"
+              }
+            ],
+            "id": 761,
+            "name": "FunctionDefinition",
+            "src": "454:103:6"
+          },
+          {
+            "attributes": {
+              "name": "onlyRadicoSystem",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": "@notice Function modifier ensures modified function is only called by TBTCSystem."
+                },
+                "id": 762,
+                "name": "StructuredDocumentation",
+                "src": "565:85:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 763,
+                "name": "ParameterList",
+                "src": "681:2:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_0a13730c1eabe7b8b14db99b0ac047a524b9cb7c88beb2751dcfc48af1abe2be",
+                                  "typeString": "literal_string \"Caller must be RadicoSystem contract\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                -18,
+                                -18
+                              ],
+                              "referencedDeclaration": -18,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 764,
+                            "name": "Identifier",
+                            "src": "695:7:6"
+                          },
+                          {
+                            "attributes": {
+                              "commonType": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": -15,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 765,
+                                    "name": "Identifier",
+                                    "src": "717:3:6"
+                                  }
+                                ],
+                                "id": 766,
+                                "name": "MemberAccess",
+                                "src": "717:10:6"
+                              },
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 750,
+                                  "type": "address",
+                                  "value": "radicoSystemAddress"
+                                },
+                                "id": 767,
+                                "name": "Identifier",
+                                "src": "731:19:6"
+                              }
+                            ],
+                            "id": 768,
+                            "name": "BinaryOperation",
+                            "src": "717:33:6"
+                          },
+                          {
+                            "attributes": {
+                              "hexvalue": "43616c6c6572206d7573742062652052616469636f53797374656d20636f6e7472616374",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "token": "string",
+                              "type": "literal_string \"Caller must be RadicoSystem contract\"",
+                              "value": "Caller must be RadicoSystem contract"
+                            },
+                            "id": 769,
+                            "name": "Literal",
+                            "src": "765:38:6"
+                          }
+                        ],
+                        "id": 770,
+                        "name": "FunctionCall",
+                        "src": "695:119:6"
+                      }
+                    ],
+                    "id": 771,
+                    "name": "ExpressionStatement",
+                    "src": "695:119:6"
+                  },
+                  {
+                    "id": 772,
+                    "name": "PlaceholderStatement",
+                    "src": "825:1:6"
+                  }
+                ],
+                "id": 773,
+                "name": "Block",
+                "src": "684:150:6"
+              }
+            ],
+            "id": 774,
+            "name": "ModifierDefinition",
+            "src": "656:178:6"
+          }
+        ],
+        "id": 775,
+        "name": "ContractDefinition",
+        "src": "287:550:6"
+      }
+    ],
+    "id": 776,
+    "name": "SourceUnit",
+    "src": "33:806:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.4+commit.3f05b770.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-01-23T15:46:03.711Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "details": "The `RadicoSystem` contract address is passed as a constructor parameter.",
+    "kind": "dev",
+    "methods": {},
+    "title": "Radico System Authority.",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "constructor": {
+        "notice": "Set the address of the System contract on contract initialization."
+      }
+    },
+    "notice": "Contract to secure function calls to that only the System contract should be able to use.",
+    "version": 1
+  }
+}
